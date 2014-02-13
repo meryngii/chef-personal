@@ -1,0 +1,22 @@
+#!/bin/sh
+
+start() {
+    mount -t vboxsf -o rw,exec,uid=1000,gid=1000,dmode=777 <%= @device_name %> <%= @mount_path %>
+}
+
+stop() {
+    umount <%= @device_name %>
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+esac
+

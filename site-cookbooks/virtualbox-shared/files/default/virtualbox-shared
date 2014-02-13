@@ -1,0 +1,22 @@
+#!/bin/sh
+
+start() {
+    mount -t vboxsf -o rw,exec,uid=1000,gid=1000,dmode=777 Dropbox /home/me/Dropbox
+}
+
+stop() {
+    umount Dropbox
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+esac
+

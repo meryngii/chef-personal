@@ -1,0 +1,11 @@
+{
+    "recipes" : [
+        "vim::default",
+        "texlive::default",
+        "ricty::default",
+        "remove-unusable-packages::default",
+        "virtualbox-shared::default",
+        "unity-custom::default"
+    ]
+}
+
