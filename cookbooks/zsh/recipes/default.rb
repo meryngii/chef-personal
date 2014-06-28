@@ -9,11 +9,13 @@ USER  = node.user
 GROUP = node.group
 HOME  = node.home
 
-packages = value_for_platform(
-    ["ubuntu"] => {"default" => ["vim-gnome", "exuberant-ctags"]},
-    ["centos"] => {"default" => ["vim-enhanced"]},
-    "default"  => "vim"
-)
+#packages = value_for_platform(
+#    #["ubuntu"] => {"default" => ["vim-gnome", "exuberant-ctags"]},
+#    #["centos"] => {"default" => ["vim-enhanced"]},
+#    "default"  => "vim"
+#)
+
+packages = ["zsh"]
 
 packages.each do |pkg|
     package pkg
@@ -26,8 +28,8 @@ git File.join(HOME, 'dotfiles') do
     group GROUP
 end
 
-linked_dirs = [".vim"]
-linked_files = ['.vim', '.vimrc', '.gvimrc', '.vimshrc']
+linked_dirs = [".oh-my-zsh"]
+linked_files = ['.zshrc']
 
 linked_dirs.each do |f|
     directory File.join(HOME, f) do
